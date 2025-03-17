@@ -283,7 +283,7 @@ const Home = () => {
         {/* Hero Welcome Section */}
         <motion.div
           variants={fadeInUp}
-          className="mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-center relative overflow-hidden py-8 sm:py-10 md:py-12 lg:py-16 rounded-xl shadow-lg bg-gradient-to-br from-green-100/50 to-blue-100/50 dark:from-green-500/20 dark:to-blue-500/20 max-w-full mx-auto"
+          className="mb-6 sm:mb-8 mt-12 md:mb-10 lg:mb-12 text-center relative overflow-hidden py-8 sm:py-10 md:py-12 lg:py-16 rounded-xl shadow-lg bg-gradient-to-br from-green-100/50 to-blue-100/50 dark:from-green-500/20 dark:to-blue-500/20 max-w-full mx-auto"
           style={{ minHeight: "150px", maxHeight: "250px" }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-green-200/20 via-blue-200/20 to-purple-200/20 dark:from-green-400/20 dark:via-blue-500/20 dark:to-purple-600/20 -z-10" />

@@ -1,12 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { FaGlobe } from "react-icons/fa";
 import {
   Leaf,
-  Globe,
+  ShoppingBag,
+  Footprints,
   Trophy,
   Users,
-  Droplet,
   Trash2,
   Calendar,
   Award,
@@ -50,39 +51,39 @@ const Features = () => {
       path: "/activity-tracking",
     },
     {
-      icon: Globe,
+      icon: Footprints,
       title: "Carbon Footprint Calculator",
       desc: "Measure your carbon emissions with our AI-powered tool and get personalized tips to reduce them.",
-      color: "text-blue-500",
+      color: "text-green-500",
       path: "/carbon-footprint-calculator",
     },
     {
       icon: Trophy,
       title: "Gamified Challenges",
       desc: "Take on weekly eco-challenges, earn points, and compete on the leaderboard to become an eco-champion.",
-      color: "text-yellow-500",
+      color: "text-green-500",
       path: "/gamified-challenges",
     },
     {
       icon: Users,
       title: "Community Hub",
       desc: "Join a global network of eco-warriors, share tips, and inspire each other to live sustainably.",
-      color: "text-purple-500",
+      color: "text-green-500",
       path: "/community-hub",
     },
     {
-      icon: Globe, 
+      icon: FaGlobe, 
       title: "3D Earth View", 
       desc: "Visualize your global impact with an interactive 3D Earth, tracking sustainability efforts worldwide.", 
-      color: "text-cyan-500", 
+      color: "text-green-500", 
       path: "/earth-3d", 
     },
     {
-      icon: Droplet,
-      title: "Resource Conservation",
-      desc: "Track water and energy usage, set goals, and celebrate milestones in reducing waste.",
-      color: "text-teal-500",
-      path: "/resource-conservation",
+      icon: ShoppingBag, 
+      title: "Carbon Offset Market", 
+      desc: "Offset your carbon footprint by trading credits in our eco-friendly market, supporting global sustainability.", 
+      color: "text-green-500", 
+      path: "/carbon-offset-market", 
     },
   ];
 
