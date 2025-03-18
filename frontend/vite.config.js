@@ -10,7 +10,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist', // Ensure this matches your expected publish directory
+    outDir: 'build', // Ensure this matches your expected publish directory
     rollupOptions: {
       onwarn(warning, warn) {
         // Suppress warnings about /*#__PURE__*/ comments
