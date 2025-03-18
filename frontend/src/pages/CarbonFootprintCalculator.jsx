@@ -359,7 +359,7 @@ const CarbonFootprintCalculator = () => {
               loading ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >
-            Calculate Footprint
+            {loading ? "Calculating..." : "Calculate Footprint"}
           </motion.button>
         </motion.form>
 
