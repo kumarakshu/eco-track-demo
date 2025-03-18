@@ -40,7 +40,7 @@ const CarbonFootprintCalculator = () => {
   const [loading, setLoading] = useState(false);
 
   const fetchCarbonFootprint = async (data) => {
-    const response = await fetch("https://eco-track-demo-mpsa.onrender.com/calculate", {
+    const response = await fetch("https://44.226.145.213/calculate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ const CarbonFootprintCalculator = () => {
   };
 
   const fetchRecommendations = async (data) => {
-    const response = await fetch("https://eco-track-demo-mpsa.onrender.com/recommend", {
+    const response = await fetch("https://44.226.145.213/recommend", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -104,7 +104,7 @@ const CarbonFootprintCalculator = () => {
         shopping_emission: result.shopping_emission,
       };
 
-      const response = await fetch("https://eco-track-demo-mpsa.onrender.com/recommend", {
+      const response = await fetch("https://44.226.145.213/recommend", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
