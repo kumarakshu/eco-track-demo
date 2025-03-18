@@ -6,6 +6,10 @@ from config import GEMINI_API_KEY
 app = Flask(__name__)
 CORS(app)
 
+@app.route("/")
+def home():
+    return "Welcome to the Carbon Emissions API!"
+
 @app.route("/calculate", methods=["POST"])
 def calculate():
     """API to calculate emissions."""
