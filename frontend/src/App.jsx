@@ -145,14 +145,6 @@ function App() {
                   </PrivateRoute>
                 }
               />
-              <Route
-                path="/earth"
-                element={
-                  <PrivateRoute user={user}>
-                    <Earth />
-                  </PrivateRoute>
-                }
-              />
 
               {/* Redirect unauthenticated users */}
               <Route path="*" element={<Navigate to="/login" />} />
