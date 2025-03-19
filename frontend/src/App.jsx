@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import HeroSection from "./components/HeroSection";
 import FeaturesSection from "./components/FeaturesSection";
@@ -45,7 +45,11 @@ function App() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+      </div>
+    );
   }
 
   return (
@@ -77,26 +81,81 @@ function App() {
               <Route path="/forgot-password" element={<ForgotPassword />} />
 
               {/* Protected Routes */}
-              {user && (
-                <>
-                  <Route path="/home" element={<Home />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/leaderboard" element={<Leaderboard />} />
-                  <Route path="/features" element={<Features />} />
-                  <Route path="/how-it-works" element={<HowItWorks />} />
-                  <Route path="/location" element={<LocationPage />} />
-                  <Route path="/carbon-footprint-calculator" element={<CarbonFootprintCalculator />} />
-                  <Route path="/user-dashboard" element={<UserDashboard />} />
-                </>
-              )}
+              <Route
+                path="/home"
+                element={
+                  <PrivateRoute user={user}>
+                    <Home />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/contact"
+                element={
+                  <PrivateRoute user={user}>
+                    <Contact />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/leaderboard"
+                element={
+                  <PrivateRoute user={user}>
+                    <Leaderboard />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/features"
+                element={
+                  <PrivateRoute user={user}>
+                    <Features />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/how-it-works"
+                element={
+                  <PrivateRoute user={user}>
+                    <HowItWorks />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/location"
+                element={
+                  <PrivateRoute user={user}>
+                    <LocationPage />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/carbon-footprint-calculator"
+                element={
+                  <PrivateRoute user={user}>
+                    <CarbonFootprintCalculator />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/user-dashboard"
+                element={
+                  <PrivateRoute user={user}>
+                    <UserDashboard />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/earth"
+                element={
+                  <PrivateRoute user={user}>
+                    <Earth />
+                  </PrivateRoute>
+                }
+              />
 
               {/* Redirect unauthenticated users */}
-              {!user && (
-                <>
-                  {/* Redirect all other routes to login */}
-                  <Route path="*" element={<Navigate to="/login" />} />
-                </>
-              )}
+              <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
           </main>
           <Footer />
