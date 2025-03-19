@@ -48,6 +48,7 @@ const WeatherCard = ({ weather }) => {
     wind: 12,
     humidity: 65,
     airQuality: 45,
+    feelsLike: 23,
   };
 
   const getWeatherIcon = (condition) => {
