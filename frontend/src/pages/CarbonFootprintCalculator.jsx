@@ -37,7 +37,8 @@ const CarbonFootprintCalculator = () => {
   const [result, setResult] = useState(null);
   const [recommendations, setRecommendations] = useState(null);
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [carbonCalcLoading, setCarbonCalcLoading] = useState(false);
+  const [recommendationsLoading, setRecommendationsLoading] = useState(false);
 
   const fetchCarbonFootprint = async (data) => {
     const response = await fetch("https://eco-track-demo-mpsa.onrender.com/calculate", {
@@ -72,7 +73,7 @@ const CarbonFootprintCalculator = () => {
     setError("");
     setResult(null);
     setRecommendations(null);
-    setLoading(true);
+    setCarbonCalcLoading(true);
 
     try {
       const data = {
@@ -88,13 +89,13 @@ const CarbonFootprintCalculator = () => {
     } catch (err) {
       setError("Error calculating footprint. Please check your inputs.");
     } finally {
-      setLoading(false);
+      setCarbonCalcLoading(false);
     }
   };
 
   const getRecommendations = async () => {
     setError("");
-    setLoading(true);
+    setRecommendationsLoading(true);
 
     try {
       const data = {
@@ -153,7 +154,7 @@ const CarbonFootprintCalculator = () => {
     } catch (err) {
       setError("Error fetching recommendations.");
     } finally {
-      setLoading(false);
+      setRecommendationsLoading(false);
     }
   };
 
@@ -351,15 +352,15 @@ const CarbonFootprintCalculator = () => {
           {/* Submit Button */}
           <motion.button
             type="submit"
-            disabled={loading}
+            disabled={carbonCalcLoading}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             variants={fadeInUp}
             className={`w-full py-3 rounded-lg font-semibold text-lg shadow-md transition-all duration-300 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white flex items-center justify-center gap-2 ${
-              loading ? "opacity-50 cursor-not-allowed" : ""
+              carbonCalcLoading ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >
-            {loading ? "Calculating..." : "Calculate Footprint"}
+            {carbonCalcLoading ? "Calculating..." : "Calculate Footprint"}
           </motion.button>
         </motion.form>
 
@@ -448,15 +449,15 @@ const CarbonFootprintCalculator = () => {
             </div>
             <motion.button
               onClick={getRecommendations}
-              disabled={loading}
+              disabled={recommendationsLoading}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               variants={fadeInUp}
               className={`mt-6 w-full py-3 rounded-lg font-semibold text-lg shadow-md transition-all duration-300 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white ${
-                loading ? "opacity-50 cursor-not-allowed" : ""
+                recommendationsLoading ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
-              {loading ? "Loading..." : "Get Recommendations"}
+              {recommendationsLoading ? "Loading..." : "Get Recommendations"}
             </motion.button>
           </motion.div>
         )}
