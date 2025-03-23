@@ -24,16 +24,16 @@ const handleGoogleAuth = async () => {
         createdAt: new Date(),
       });
 
-      window.location.href = "https://eco-track-demo.onrender.com/location";
+      window.location.href = "/location";
     } else {
       // Check if location data exists
       const userData = userDoc.data();
       if (userData.location) {
         // Location data exists, redirect to /home
-        window.location.href = "https://eco-track-demo.onrender.com/home";
+        window.location.href = "/home";
       } else {
         // Location data doesn't exist, redirect to /location
-        window.location.href = "https://eco-track-demo.onrender.com/location";
+        window.location.href = "/location";
       }
     }
 
